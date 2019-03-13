@@ -8,7 +8,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var bodyParser = require('body-parser');
-// var fileUpload = require('express-fileupload');
+ var fileUpload = require('express-fileupload');
 
 
 var app = express();
@@ -19,8 +19,7 @@ var flash= require('express-flash');
 
 
 
-//var passport = require('passport');
-// all environments
+
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +36,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(fileUpload());
+app.use(fileUpload());
 // app.use(passport.initialize());
 app.use(function(req, res, next) {
   res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');

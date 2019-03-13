@@ -22,7 +22,7 @@ module.exports = function() {
 
     this.isLoginCheck= function(req){
         var sess = req.session;
-        if(sess.username){
+        if(sess.email){
             return true;
         }else{
             return false;
